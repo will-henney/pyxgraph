@@ -1,0 +1,9 @@
+
+python gendata.py
+
+for item in `ls *.py | grep -v make_html.py | grep -v gen_data | grep -v doc_string_extract`
+do 
+  echo "======================================================="
+  echo $item
+  python $item
+done

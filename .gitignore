@@ -1,0 +1,4 @@
+examples/*.pdf
+examples/*.eps
+*.pyc
+/examples/_tmp.png

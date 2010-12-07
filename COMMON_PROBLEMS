@@ -1,0 +1,64 @@
+- key requested, but all lines with "title=False": 
+  reveals bug in PyX. Solution: 
+     pyxgraph(..., key=None)
+
+- g = graphxy(key=pyx.key.key("tl", vpos=, hpos=))  
+  (Note that "tl" has to be given).
+
+  
+
+
+Transitioning older plots
+=========================
+
+plottype= -> style=
+ls=   -> lt
+
+Transition to numpy
+```````````````````
+
+Don't use ``import ColMapper`` directly, just use
+  from pyxgraph import *
+which automatically imports ColMapper into your namespace.
+Or use 
+ from pyxgraph import ColMapper
+
+Reason: ColMapper.py uses numpy whereas pyxgraph.py 
+imports `numerix.py` which either imports ColMapper.py (if numpy is found)
+or ColMapper_Numeric.py (if numpy is not found)
+
+
+Problems with Integer-type
+==========================
+
+The color-argument (and other) does not accept 
+counters 'i' from 'arange'. 
+Compare:
+
+1)
+for i in arange(N):
+    g.pyxplot((x,y[:,i]),style="p",ps=0.2,pt=17,color=i)
+
+--> sets not distinguished in color
+
+2)
+for i in xrange(N):
+    g.pyxplot((x,y[:,i]),style="p",ps=0.2,pt=17,color=i)
+
+--> correct assignment of colors
+
+
+This should be fixed now. The reason for this:
+  In color_provider.py: _to_pyxcolor_eval(val)
+  the construct 
+    ``if type(ident) is int:``
+  was used. For elements of an numpy array, e.g. arange(10)
+  the type is <type 'int32scalar'> and the above condition is never true.
+  Replacing this by 
+    ``if isinstance(ident, int):``
+  seems to cure the problem.
+
+  WARNING: there might be further ones like this lurking around.
+  Please report (and we have to check the code)
+
+

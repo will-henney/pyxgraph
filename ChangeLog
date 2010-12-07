@@ -1,0 +1,522 @@
+25.10.2007: (LB)
+	* compatibility bugfixes with pyx-version 0.9 in:
+	  pyxgraph.py + examples/plot_3d_1.py + examples/plot_3d_2.py
+	* ChangeLog dates corrected
+
+25.10.2007b: (AB)
+    * version 0.2.5.
+
+25.10.2007: (AB)
+    * corrected problem in matplotlib_pyx.py that matplotlib 
+      cannot write jpegs anymore in recent versions.
+      Unfortunately this means that PIL has to be used explicitly in that 
+      example.
+
+25.10.2007: (AB, sl):
+    * renamed 3dplot1.py, 3dplot2.py to plot_3d_1.py and plot_3d_2.py
+    * test for PyX>=0.10 added in these two examples 
+    * Remarks on installation added to README
+	  
+18.10.2007: (sl)
+    * examples/3dplot1+2.py: examples for 3d plots added
+
+18.10.2007: (sl)
+    * pyxgraph.py: added object pyxgraph3d with new method pyxplotsurface:
+                   It is a first attempt to bring the new 3d options of pyx
+                   (>= 0.1) to pyxgraph. Only basics are implemented yet,
+                   All methods in pyxgraph3d have to be tested! Labels look 
+                   strange, overlaying surfaces?, ...
+
+24.09.2007: (mr)
+    * added support for specification of levels and colors as arrays 
+      of the same length to pyxplotcontour
+
+19.09.2007: (sl)
+    * pyx_objects.py: added pyxerrorbar, for plotting data with errorbars
+                      added pyxdimlabel, for plotting labels with arrows, see:
+    * examples/make_labels_with_arrows.py
+    * examples/errorbars.py
+
+30.08.2007: (MM)
+    * little change in 'contour.py' due to numpy transition of nonzero
+    * removed 'raw_input' in 'examples/matplotlib_pyx.py'
+
+02.08.2007: (sl)
+    * pyx_objects.py: some changes on pyxplothist (for plotting histograms)
+
+13.07.2007: (sl)
+    * pyx_objects.py: graphcoords for pyxarrows are now interpreted
+                      logarithmically if the axis is a logarithmic one
+
+25.04.2007: (WW)
+    * pyx_objects.py: def pyxplothist (for plotting histograms)
+    * examples/histogram.py: histogram example added 
+    * axes.py: related to change of 23.08.2006: (some NotImplementedError cancelled) 
+
+23.03.2007: (AB)
+    * sans_serif_fonts2.py example added
+
+16.02.2007: (JL)
+    * color_provider.py: accept any iterable instead of only list and tuple
+        (passing a 3 element array would result in black)
+
+15.02.2007: (JL)
+    * styles.py: bugfix in linepattern_from_strings ('_' not interpreted
+      as intended)
+
+14.11.2006: (LB)
+    * pyxgraph.py:  pyxcolorbar -> textattrs added; now you can change size
+	  of labels
+	
+06.11.2006: (AB)
+    * contour.py: use numerix instead of numpy (otherwise PyXgraph does
+      not work on Numeric only installations). Evil hack in numerix.py added
+      because `any` does not exist in Numeric. 
+      As a consequence contouring is not useable under Numeric.
+
+20.09.2006b: (JL)
+    * examples/array5.py: bitmap plot was upside down (did not matter bc. of
+                          symmetry)
+
+20.09.2006: (JL)
+    * pyx_objects.py: pyxplotcontour: fixed placement of line labels
+                      and corrected docstring
+
+19.09.2006: (JL)
+    * contour.py: added documentation
+
+18.09.2006: (JL)
+    * color_provider.py: Fixed bug with numpy float types.
+    * numerix.py: NewAxis = newaxis (numpy compat.)
+    * pyxgraph.py: Fixed bug in pyxgraph.pyxplot._check_attr
+                   added pyxgraph.pyxplotcontour
+    * contour.py: added (routines for calculating contour lines from 2d array)
+    * pyx_objects.py: def pyxplotcontour
+    * examples/array4.py, examples/array5.py: contour plot examples
+    
+07.09.2006: (SL)
+    * examples/axes16.py: shows how to make ticks without numbering
+
+29.08.2006: (JL)
+    * pyxgraph.py: pyxgraph.pyxplot: Docstring (linetype & title kw's)
+
+28.08.2006b: (JL)
+    * styles.py: added linepattern_from_string
+                 (string like '-.-.' -> linepattern)
+    * pyxgraph.py: in pyxgraph.pyxplot: accept lt=<string>
+    * examples/styles_example3.py: added
+
+28.08.2006: (JL)
+    * examples/simple4_arrows_labels.py: added multiline label (with parbox)
+
+23.08.2006: (WW+SL)
+    * styles.py: new linestyles for two-coloured dashed lines added
+    * axes.py: new axistype for axes with fractional numbers added 
+
+21.07.2006: (LB)
+    * examples/axes3.py: legend with smaller text inserted
+	* pyxgraph.py: - renamed graphics to self in pyxplot :)
+				   - color counter added in pyxplot 
+				     -> increment only if color=None
+
+13.07.2006: (AB)
+    * examples/simple3_inset.py: hack example for smaller fonts for insets
+
+28.06.2006b: (AB)
+    * ColMapperNumeric.py: Array2PIL modified as well.
+	
+28.06.2006: (AB)
+    * ColMapper.py: Array2PIL can now handle lookup tables with up
+      to 65536 entries. This should lead to smoother color
+      appearances, in particular for segmented color maps.
+
+03.07.2006: (NH)
+    * examples/array3.py: Fix for Numeric and numpy
+
+30.06.2006: (SL)
+    * examples/array3.py: example for using the segmented color mapper added
+
+28.06.2006: (AB)
+    * pyx_objects.py: pyxsave uses paperformat per default now
+      (corrects a bug in the ordering for checking for None/False/..)
+
+09.06.2006: (SL)
+    * ColMapperNumeric.py: segmented color mapper added
+
+08.06.2006: (SL+ WW)
+    * ColMapper.py: first version of segmented color mapper with example
+                    added, some new color functions
+
+24.05.2006: (AB)
+    * version 0.2.4.
+	
+15.05.2006: (AB)
+    * support for gv bugfix (no user visible change, apart
+      from the factor 1.6 in file size for bitmaps)
+
+09.05.2006: (AB)
+    * pyxsave: accept `use_paper_format=pyx.document.paperformat.A3`
+
+23.04.2006: (AB)
+    * removed some ``print type()`` which were left-over from 
+      debugging the type problem.
+
+25.04.2006: (SL)
+    * examples/axes14.py: new example using linear y-axis with
+                          ticks in exponential notation
+
+23.04.2006: (AB)
+    * some small modifications to numerix.py: should import 
+      either Numeric or numpy, depending on whether
+      any of these is already imported.
+      If none of them is imported, numpy is tried first.
+    * Some remark wrt. ColMapper.py, framework of thoughts
+      on segmented color maps: SegmentedColorMapping
+	
+21.04.2006b: (AB)
+    * fixed bug reported by Waltraut Wustmann:
+      In color_provider.py: _to_pyxcolor_eval(val)
+      the construct 
+	``if type(ident) is int:``
+      was used. For elements of an numpy array, e.g. arange(10)
+      the type is <type 'int32scalar'> and the above condition is never true.
+      Replacing this by 
+        ``if isinstance(ident, int):``
+      seems to cure the problem.
+
+      WARNING: there might be further ones like this lurking around.
+      Please report (and we have to check the code)
+	
+21.04.2006: (WW)
+    * COMMON_PROBLEMS: problems with integer-type in color-arguments (counter)
+
+21.04.2006: (AB)
+    * examples/colorbars.py: reduce number of examples
+    * pyx_objects.py: pyxbitmap  and pyxplotarray use dctquality=100
+      as default. The file size seems to be only slightly larger,
+      but now no artefacts in the bitmaps are visible.
+	
+13.04.2006: (AB)
+    * Code cleanup for ColMapper.py. Full conversion to numpy.
+      For compatibility, the old ColMapper.py for Numeric lives 
+      on as ColMapperNumeric.py
+    * matplotlib_pyx.py: does not work on my laptop with
+      In [2]: matplotlib.__version__ Out[2]: '0.87.2', 
+      cp-matplotlib  0.87.1.2150-1.
+      (could be my laptop, or it there might be a newer 
+       matplotlib package, which I cannot access from my laptop
+      due to the super-duper firewall on our debian group-server)
+	
+04.04.2006: (JL)
+    * pyxgraph.py: For compleneteness, replaced every check of the form
+      ``xyz == types.SomeType`` by the more pythonic
+      ``xyz is types.SomeType``
+    * axes.py, pyx_objects.py: same.
+
+04.04.2006: (JL)
+    * pyxgraph.py: l.570 fixed the bug that occured when using
+      numpy (comparing array to string) and added checking for
+      Unicode string. All examples pass now with numpy.
+    * numerix.py: Uncommented numpy section and moved to top.
+
+25.03.2006: (AB)
+    * axes.py: another argument to ticks so that only every m-th tick
+      gets a label:
+      If you want no subticks, but labeling of every 2nd tick only, then choose:
+      cticks=(0.0, 4.0, 1.0, 0, 2)
+      This is in particular convenient for log-scales, e.g.
+      yticks=(0.0001, 1000, 100.0, 0, 5).
+	
+24.03.2006: (AB)
+    * examples/symbols.py: suggestion by Nikolai incorporated to use
+      ``pt=i`` in the example.
+
+24.03.2006: (AB)
+    * filled_regions.py: example wish by LarsS:
+      fill the region defined by a sequence of points
+      by converting them to a path which can be stroked and filled.
+
+20.03.2006: (AB)
+    * axes.py: fixed bug reported by Nikolai concerning ticks for log-scales.
+      (let's see if it does not introduce other problems).	
+
+17.03.2006: (AB)
+    * examples/matplotlib_pyx.py: is working again
+
+15.03.2006: (AB)
+    * examples/sans_serif_fonts.py: better documentation on the need
+      for downloading sfmath.sty	
+
+15.03.2006 (SL):
+   * pyxgraph.py: xpaint and ypaint can be set to False, so that 
+                  x- and y-axis are not plotted, see
+   * examples/axes13.py:
+
+14.03.2006: (AB)
+   * pyxgraph.py: compressmode from "Flate" to "DCT" as default.
+     It turns out that Flate is Postscript level 3 
+     (and not the other way round ...).  
+     See e.g.: http://www.capcode.de/help/filter, 
+     "postscript language reference".
+     One can check a resulting file by  grep -i filter filename
+	
+14.03.2006: (AB)
+   * examples/sans_serif_fonts.py (+sfmath.sty) added.
+	
+09.03.2006: (AB)
+   * pyx_objects.py: pyxsave  
+      By using A4 as paperformat the resulting plot is centered on A4.
+      Consequenes:
+         - one can print the resulting file
+         - one can ensure that no negative bounding box coordinates arise
+      If the plot is larger than A4 a warning will be issued
+      (this is only true with PyX SVN> 09.03.2006). 
+	
+07.03.2006: (AB)
+   * pyxgraph.py: improved colorbars
+   * examples/colorbars.py: all possible variants for colorbars.
+	
+05.03.2006: (AB)
+    * pyx_objects.py: graphcoords for pyxbitmap.
+    * examples/matplotlib_pyx.py: finally got rid of the border from matplotlib.
+	
+27.02.2006: (AB)
+    * made title working again after ``self.domethods`` was removed from PyX.
+
+20.02.2006: (AB)
+    * examples/axes11.py: axes without any ticks
+    * examples/axes12.py: minor ticks example
+    * axes.py: support for minor ticks.
+	
+19.02.2006: (AB)
+    * examples/axes10.py: demonstrate different painters.
+    * examples/doc_string_extract.py: extract doc-strings without importing
+      (all `if __name__=="__main__":` could go *again*, 
+	but this time I better wait)
+    * pyxgraph.py, axes.py: extensive changes for painter stuff
+      (hope it works).	 
+		
+18.02.2006: (AB)
+    * examples/bitmap2.py: make lines hidden behind the bitmap.
+    * pyxgraph.py: `pyxplotarray` routine: see array1.py and array2.py 
+      examples
+    * all examples: added `if __name__=="__main__":` again.
+      The reason is that make_html.py does import each example
+      to extract the docstring at the beginning of the file.
+      We don't want to recreate the graphics in this case.
+    * examples/amsmath_and_xscale.py: new example which demonstrates
+      the use of different fonts. It also shows a change of the font size.	
+	
+   
+	
+16.02.2006: (AB)
+    * TODO list updated with suggestsion from Joerg Lehmann and Andre Wobst
+    * all examples updated to use  `g.writeEPSfile` directly.
+    * pyxgraph.py: removed vdist specification from
+      ``curr_key = pyx.graph.key.key(pos=key, vdist=0.1*pyx.unit.cm)``
+      (why should we use bad defaults, if PyX does the job already perfect?;-)
+	    
+13.02.2006: (AB)
+    * axes.py: support for "pi" axes
+    * examples/axes7.py: adapted example accordingly.
+	
+12.02.2006: (AB)
+    * pyxgraph.py: no ipython for debugging 
+    * pyxgraph.py: pyx_xlabel, pyx_ylabel for aligning labels with ticks labels
+    * pyxgraph.py: pyx.graph.data instances are allowed for data
+	
+07.02.2006: (AB)
+    * pyx_objects.py: removed a "so what ???" ;-)
+
+07.02.2006: (AB)
+    * examples/axes8.py: key outside of the graph example from Nikolai
+
+07.02.2006: (AB)
+    * examples/matplotlib_pyx.py: keep MPL quite.
+
+07.02.2006: (AB)
+    * pyxgraph.py: repaired pyxsave & related ones.
+
+07.02.2006: (AB)
+    * forgotten pyx_objects.py added
+
+07.02.2006: (AB)
+    * Big round of changes:
+    * pyxgraph_helperfuncs.py renamed to color_provider.py
+    * pyxgraph.py, pyxplot:
+      - `plottype` is replaced by `style`
+      - `linestyle` is replaced by linetype (and `ls` by `lt`)
+
+	Reason: `linestyle` fits better with `pointstyle`
+        and is also what gnuplot uses.
+        `plottype` is very long and a bit misleading, as
+        it suggests to refer to the whole plot, even though
+        it just specifies the style ("lines", "linespoints", "points")
+        of a particular line. 
+    * pyx_objects.py: the routines
+      pyxsave, pyxbitmap, pyxlabel, pyxarrow, pyxline 
+      from pyxgraph.py are moved there.	
+    * pyxgraph.py:  _scaled_symbol: moved to styles.py
+    * new axis.py: with _setup_manualticks, _setup_axis
+	
+30.01.2006: (AB)
+    * COMMON_PROBLEMS
+    * TODO (points from Nikolai)
+    * pyxgraph.py: make pylint happier
+    * howto_pylint.txt explains how to use pylint
+    * pylint_rcfile  (slightly tweaked ;-)
+	
+30.01.2006: (AB)
+    * pyxgraph.py: corrected bug in pyxarrow	
+	
+28.01.2006: (AB)
+    * pyxgraph.py: for `plot_dat`: when a filename is given
+      an additional dictionary of keywords can be passed on to
+      pyx.graph.data.file().
+      E.g.: skiptail=100 to skip the last 100 entries in the file:
+	g.pyxplot(("datafile.dat", 1, 2, dict(skiptail=100)), plottype="l")
+    * examples/axes2.py: example for `skiphead` and `skiptail` added.
+    * pyxgraph.py: new keyword `lineattrs` for additional 
+      line attributes.
+    * examples/styles_example2.py: demonstrate `lineattrs` 
+      via miter, bevel and round.
+    * examples/styles_example.py: stylistic corrections.
+	
+27.01.2006: (SL)
+    * styles.py: filled triangle up size corrected.
+
+20.01.2006: (SL) 
+    * styles.py: new color set 'rainbow' added
+    * examples/colors.py: shows new colors
+
+20.01.2006: (AB) 
+    * examples/matplotlib_pyx.py: example of using a matplotlib generated 
+      graphics embedded in PyX (useful for Poincare sections ;-)
+	
+19.01.2006: (AB)
+    * pyxgraph.py - pyxbitmap: problem with compressed bitmaps and 
+      `compressmode="Flate"` solved by setting `compressmode=None`
+      for .jpg files (compression of a compressed image not supported).	
+	
+19.01.2006: (JL)
+    * pyxgraph.py:
+        pyxbitmap: turned compression off again (not working on my PC)
+        pyxgraph.pyxplot: added linecolor= keyword
+    * examples/simple1.py:
+        now one graph with color=... and linecolor=...
+
+18.01.2006: (AB)
+	* pyxgraph.py: dashlength/dl support for individual lines
+	* examples/styles_example.py: example styles_example.py 
+	  which demonstrates different linestyles (which was in colors.py), 
+	  and variation of the dashlengths.
+
+17.01.2006: (JL)
+    * In pyxgraph.py:
+        * l.213ff: For the refactorization of class pyxgraph to work, these 
+            functions had to be defined before the class. 
+        * l.511: refactorization (simpler than the wrappers)
+        * l.666: changed to .get (handles error case better)
+        * l.668: added simple error check (imho enough)
+        * l.806: use _to_pyxcolor now
+    * In pyxgraph_helperfuncs.py: (File created)
+        * function _to_pyxcolor written
+    * examples/colors1.py created and added to make_html.py
+    
+17.01.2006 (AB):
+	* pyxgraph.py: pyxplot:
+	   Setting `title` to False for plot: no title, for sure:
+           - False: not title (i.e. key) - for sure
+           - None: auto-numbering (if key is enabled)
+           - "string"
+
+17.01.2006: (AB)
+	* pyxgraph.py: compressmode von None auf "Deflate" als default.
+
+14.01.2006: (AB)
+	* styles.py: `linepattern_factory` and `provide_styles` 
+	  added so that we can pre-define different dashlengths easily.
+	* adapted examples to show a couple of the features
+	* WARNING: Backwards incompatible change: dashed lines
+	  look differently now. 
+
+12.01.2006: (AB)
+	* pyxgraph.py: fix so that also logarithmic axes can have no ticks.
+
+12.01.2006: (AB)
+	* examples/make_html.py: removed the need for `laps` to 
+	  generate `examples.ps`
+
+11.01.2006: (AB)
+	* pyxgraph.py: backwards incompatible change:
+   	    default_painter = pyx.graph.axis.painter.regular(
+	            basepathattrs=[pyx.style.linewidth.Thick],
+                    tickattrs=[pyx.style.linewidth.thick])    
+	  changed to 
+  	    default_painter = pyx.graph.axis.painter.regular()
+
+	  (Reason: the defaults look alright to me ...)
+
+11.01.2006: (AB)
+	* example with pi axis 
+	* improved examples.ps (includes the source code)
+        * doc-string for all examples move to the top of the file
+
+10.01.2006: (AB)
+        * examples with labels 
+	  (note: title not yet implemented)
+	* pyxgraph: comment improvement for keys
+
+10.01.2006: (AB)
+	* several ticks enhancements, see the new axes4.py axes5.py and axes6.py
+	  examples
+
+09.01.2006: (AB)
+	* pyxgraph: `col` keyword removed - color should be enough
+        * pyxgraph: class pyxgraph renamed to PyxGraph 
+	* loads of code adaption to new coding style
+	* pyxgraph: Setting xticks=False or yticks=False 
+	  means that no tick labels
+	  will be plotted for the corresponding axis.
+	* pyxgraph: color can also be a pyx.color.color instance
+	  (just to make things even more flexible ;-)
+
+05.01.2006: (AB)
+	* makehtml.py: latex output added
+	* pyxcolorbar improvements
+	* _setup_axis can now eat an axis instance
+
+05.01.2006: (SL)
+	* styles.py: triangle up symbol corrected 
+
+04.01.2006: (AB)
+        * styles.py: moved star symbol further to the end
+	  (as + and x  gave *, this was indistinguishable in plots ...)
+	* examples: code clean-up
+
+03.01.2006: (AB)
+	* xrange, yrange --> xlimits and ylimits (sorry!)
+
+22.12.2005: (SL)
+	* symbols.py and styles.py examples demonstrate new linestyle
+	  capabilities
+	
+15.12.2005: (AB)
+	* clean up of examples, addition of script make_html.py
+	  to generate overview of all examples.
+
+13.12.2005: (AB)
+	* for plotting of datafiles: allowed strings as
+	  arguments for specifying the columns to enable
+	   "$1/$5" a la gnuplot.
+
+13.12.2005: (AB)
+	* key positioning via string (eg. "tl", "tr",....) added 
+
+06.12.2005: (AB)
+	* ColMapper.py added (needs code clean-up!!)
+	* examples/array_example.py
+	
+05.12.2005: (AB)
+	* renamed legend to key to pyxgraph
+	

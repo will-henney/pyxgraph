@@ -1,0 +1,83 @@
+
+``Rules`` ahead
+===============
+
+- contribute contribute contribute!!
+- before making changes:
+    svn update
+- When making changes to the code, 
+  test all examples very often:
+    cd examples
+    ./run_all_examples
+
+  Reason:  The error messages from PyX can be very
+  confusing and don't point to the right place of the error ....
+- accompany edits with a detailed description in the ChangeLog
+- add any ideas to this file!
+
+
+
+TOBEDONE
+========
+
+- setup.py and egg support: VIP
+
+- more examples:
+  - minor ticks, 
+  - ...
+
+  - errorbar
+  - linked axis
+  - integral with grey shaded area
+  - symbolline.eps
+
+- all FIXMEs
+
+- colors
+  - ColMapper.py: code clean-up (what can we do with the pm3d color maps?
+  - add segmented color maps.  
+  - color scales
+  - plot with color from a colormap (use another column from a data file,
+    or a triple (x, y, col)
+    or (x, y, size_of_a_symbol)
+
+    See: graphstyles/changesymbol.py
+
+  - inside/outside color for symbols
+  - linecolor="dimmed(0.8)" mixture
+
+- for texts: "tbv lcr"  alignment
+-  Allow:
+   pyxgraphxy(key=("tl", dict(vpos=0.4, hpos=0.2, hinside=0)) 
+
+- check: color is wrong when too large value is given ?!
+- check: Achsen rueckwaerts (bei negativen Zahlen?)
+
+
+
+- maybe: rename pyxgraph to pyxgraphxy (if further graph styles
+  are needed) (suggestion by Joerg Lehmann)
+  Q: are there any further graphstyles?
+  (and if so, why not give those a longer name? 
+   Most use cases we have are just pyxgraphxy.
+   On the other hand it is nice to be as close as possible to PyX
+   itself. But it is longer. Hmm.
+
+- rename "xaxis" argument to "xaxistype" (suggestion by Joerg Lehmann)
+  Also longer, but ok, or???: deprecation is in force already.
+  Let this simmer for a few days ....
+
+
+- storing default settings (eg. in ~/.pyxgraphrc and current directory.
+  For this to happen we need to convert all keyword arguments
+  to the ** variant and parse that dictionary.
+
+
+
+Lower priority
+--------------
+
+- clipping does not work that well (parts of the symbols are outside)
+  (solution already proposed by Andre Wobst)
+- translateablecanvas.py
+- datasets with Nans etc....

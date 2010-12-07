@@ -1,0 +1,34 @@
+
+Usage
+=====
+
+pylint --rcfile pylint_rcfile   --include-ids=y pyxgraph.py --comment=y
+
+
+Generate rcfile
+===============
+
+pylint --generate-rcfile > pylint_rcfile 
+
+all available errors::
+
+  pylint --list-msgs > pylint_messages.txt 
+
+
+Swithcing off individual ones::
+
+  --disable-msg-cat
+  --disable-msg
+
+
+W0142:
+  Used when a function or method is called using `*args` or `**kwargs` to
+  dispatch arguments. This doesn't improve readility and should be used with
+  care. This message belongs to the basic checker.
+
+Usage
+=====
+
+pylint --rcfile pylint_rcfile --disable-msg W0142  pyxgraph.py
+
+ pylint --rcfile pylint_rcfile --disable-msg W0142  --include-ids=y pyxgraph.py
