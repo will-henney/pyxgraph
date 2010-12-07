@@ -397,7 +397,7 @@ class pyxgraph(pyx.graph.graphxy):
         #print "GOING INTO finish"
         self.dobackground()
         self.doaxes()
-        self.dodata()
+        self.doplot()
         self.dokey()
         self.pyx_do_title()
 ##        try:
@@ -649,7 +649,7 @@ class pyxgraph(pyx.graph.graphxy):
                     # x,y
                     # FIXME: check that data[0] and data[1]
                     # FIXME: are 1D lists or 1D arrays
-                    plot_dat = pyx.graph.data.list(zip(data[0], data[1]),
+                    plot_dat = pyx.graph.data.points(zip(data[0], data[1]),
                                                    x=1, y=2, title=title)
             elif (len(data) == 3) or (len(data) ==4):
                 # (filename, x_column, y_column)
@@ -1113,7 +1113,7 @@ if "graphxyz" in pyx.graph.__dict__:
             #print "GOING INTO finish"
             self.dobackground()
             self.doaxes()
-            self.dodata()
+            self.doplot()
             self.dokey()
             self.pyx_do_title()
     ##        try:
@@ -1191,21 +1191,21 @@ if "graphxyz" in pyx.graph.__dict__:
             FIXME: Note: not everything is implemented!!!
     
             data:
-               - "z(x,y)=sin(x*y)" not tested
+               - 'z(x,y)=sin(x*y)' not tested
                - (x,y,z)   arrays/lists for x,y,z
-               - "filename.dat" not tested
-               - ("filename.dat", x_column, y_column, z_column) not tested
+               - 'filename.dat' not tested
+               - ('filename.dat', x_column, y_column, z_column) not tested
                - PyX data instance: `pyx.data` (most flexible)
             style: 
-               - "l" , "lines"
-               - "lp", "linespoints"
-               - "p",  "points"
+               - 'l' , 'lines'
+               - 'lp', 'linespoints'
+               - 'p',  'points'
             linetype, lt:
                - None: automatic association
                - 0,...,len(linepattern_seq)-1
                     (larger values are taken via mod)
                - PyX line style instance
-               - string like '- -._ ', possible chars: . ' " - _ <space>
+               - string like '- -._ ', possible chars: . ' \" - _ <space>
             pointtype, pt:
                - None: automatic association
                - 0,...,len(symbol_seq)-1
@@ -1372,7 +1372,7 @@ if "graphxyz" in pyx.graph.__dict__:
                         # x,y
                         # FIXME: check that data[0] and data[1]
                         # FIXME: are 1D lists or 1D arrays
-                        plot_dat = pyx.graph.data.list(zip(data[0], data[1], data[2]),
+                        plot_dat = pyx.graph.data.points(zip(data[0], data[1], data[2]),
                                                        x=1, y=2, z=3, title=title)
                 elif (len(data) == 4) or (len(data) == 5):
                     # (filename, x_column, y_column)
@@ -1437,7 +1437,7 @@ if "graphxyz" in pyx.graph.__dict__:
                 else:
                     dataz = data[2]
                     
-            plot_dat = pyx.graph.data.list(zip(datax, datay, dataz),
+            plot_dat = pyx.graph.data.points(zip(datax, datay, dataz),
                                            x=1, y=2, z=3, title=title) 
                 
             if style == "grid":
